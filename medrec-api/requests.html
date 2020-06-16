@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Medrec</title>
+<title>Requests</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Health medical template project">
@@ -11,22 +11,8 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="assets/css/template.css" rel="stylesheet" media="screen">
-<script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script><script type="text/javascript">if ( top !== self ) top.location.replace( self.location.href );// Hey, don't iframe my iframe!</script>
-
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300" rel="stylesheet" type="text/css">
-<!--[if lt IE 9]>
-		<script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark meter nav output progress section summary subline time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
-	<![endif]-->
-
-
-<!-- <link rel="stylesheet" type="text/css" href="styles/elements.css">
-<link rel="stylesheet" type="text/css" href="styles/elements_responsive.css"> -->
+<link rel="stylesheet" type="text/css" href="styles/about.css">
+<link rel="stylesheet" type="text/css" href="styles/about_responsive.css">
 </head>
 <body>
 
@@ -64,7 +50,8 @@
 	<!-- Home -->
 
 	<div class="home">
-		<!-- <div class="background_image" style="background-image:url(images/index_hero.jpg)"></div> -->
+		<!-- <div class="background_image" style="background-image:url(images/about.jpg)"></div> -->
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/about.jpg" data-speed="0.8"></div>
 
 		<!-- Header -->
 
@@ -76,12 +63,12 @@
 							<div class="col">
 								<div class="header_top_content d-flex flex-row align-items-center justify-content-start">
 									<div class="logo">
-										<a href="#">medrec<span>+</span></a>	
+										<a href="#">Medrec<span>+</span></a>	
 									</div>
 									<div class="header_top_extra d-flex flex-row align-items-center justify-content-start ml-auto">
 										<div class="header_top_nav">
 											<ul class="d-flex flex-row align-items-center justify-content-start">
-												<li><a href="contact.html">Help Desk</a></li>
+												<li><a href="#">Help Desk</a></li>
 											</ul>
 										</div>
 										<div class="header_top_phone">
@@ -108,15 +95,15 @@
 													<li><a href="requests.html">Requests</a></li>
 													<li><a href="patients.html">Patients</a></li>
 													<li><a href="records.html">Records</a></li>
-													<li><a href="login.html">Logout</a></li>
+													<li><a href="logout.html">Logout</a></li>
 												</ul>
 											</nav>
-											<!-- <div class="search_content d-flex flex-row align-items-center justify-content-end ml-auto">
+											<div class="search_content d-flex flex-row align-items-center justify-content-end ml-auto">
 												<form action="#" id="search_container_form" class="search_container_form">
 													<input type="text" class="search_container_input" placeholder="Search" required="required">
 													<button class="search_container_button"><i class="fa fa-search" aria-hidden="true"></i></button>
 												</form>
-											</div> -->
+											</div>
 										</div>
 									</div>
 								</div>
@@ -129,65 +116,10 @@
 
 		<div class="home_container">
 			<div class="container">
-				<div class="container">
-					<div class="row">
-					<div class="col text-center">
-					<div class="section_title">Your Clinic Dashboard</div>
-					<div class="section_subtitle">choose from</div>
-					</div>
-					</div>
-					<div class="row icon_boxes_row">
-					
-					<div class="col-xl-4 col-lg-6">
-					<div class="icon_box">
-					<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
-					<div class="icon_box_icon"><img src="images/icon_1.svg" alt=""></div>
-					<div class="icon_box_title">Requests Sent</div>
-					</div>
-					<div class="request_sent_box"></div>
-					</div>
-					</div>
-					
-					<div class="col-xl-4 col-lg-6">
-					<div class="icon_box">
-					<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
-					<div class="icon_box_icon"><img src="images/icon_2.svg" alt=""></div>
-					<div class="icon_box_title">Completed Requests</div>
-					</div>
-					<div class="request_completed_box"></div>
-					</div>
-					</div>
-					
-					<div class="col-xl-4 col-lg-6">
-					<div class="icon_box">
-					<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
-					<div class="icon_box_icon"><img src="images/icon_3.svg" alt=""></div>
-					<div class="icon_box_title">Requests Received</div>
-					</div>
-					<div class="request_received_box"></div>
-					</div>
-					</div>
-				
-					
-					<div class="col-xl-4 col-lg-6">
-					
-					<div class="icon_box_title"></div>
-					</div>
-					
-					</div>
-					</div>
-					</div>
-					</div>
-
-					
 				<div class="row">
 					<div class="col">
 						<div class="home_content">
-							<!-- <div class="home_title">Medical Communication that you can trust</div>
-							<div class="home_text">MedRec is an easy to use web application aimed at simplifying patient records requests between
-								<br> offices. This means requests are never forgotten
-								<br> in a pile of paperwork.</div> -->
-							
+							<div class="home_title">Request Authorization</div>
 						</div>
 					</div>
 				</div>
@@ -195,51 +127,154 @@
 		</div>
 	</div>
 
-	<!-- Info Boxes -->
+	<!-- About -->
 
-	<div class="info">
+	<div class="about">
 		<div class="container">
-			<div class="row row-eq-height">
-
-				<!-- Info Box -->
-				<div class="col-lg-4 info_box_col">
-					<div class="info_box">
-						<div class="info_image"><img src="images/info_1.jpg" alt=""></div>
-						<div class="info_content">
-							<div class="info_title">Create a Request</div>
-							<div class="info_text">Click here to create a request for records from another clinic. </div>
-							<div class="button info_button"><a href="about.html"><span>Make Request</span><span>read more</span></a></div>
-						</div>
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title">New Request Form</div>
+				</div>
+			</div>
+			<div class="row about_row row-eq-height">
+				<div class="col-lg-4">
+					<div class="logo">
+						<a href="#">medrec<span>+</span></a>	
+					</div>
+					<div class="about_text_highlight">Fill out this simple form to request authorization with another Clinic.</div>
+					<div class="about_text">
+						
 					</div>
 				</div>
+				<div class="col-log-5">
 
-				<!-- Info Box -->
-				<div class="col-lg-4 info_box_col">
-					<div class="info_box">
-						<div class="info_image"><img src="images/info_2.jpg" alt=""></div>
-						<div class="info_content">
-							<div class="info_title">Access Records</div>
-							<div class="info_text">Click here to access all authorized patient records.</div>
-							<div class="button info_button"><a href="news.html"><span>Access</span><span>read more</span></a></div>
-						</div>
+
+
+					<div style="color:Black"class="info_form_container">
+						<form action="#" class="info_form" id="info_form">
+							<br/>Your Clinic Name:</br>
+							<select name="info_form_dep" id="info_form_dep" class="info_form_dep info_input info_select">
+							</select>
+							<br/>
+							<br/>
+								Requesting from Clinic:
+							<br/>
+							<select name="info_form_requesting" id="info_form_requesting" class="info_form_requesting info_input info_select">
+							</select>
+							<br/>
+							<br/>
+							Existing Patient:
+							<br/>
+							<select name="info_form_patient" id="info_form_patient" class="info_form_patient info_input info_select">
+								<option>Choose One</option>
+							</select>
+							<br/>
+							<br/>
+								Patient First Name:
+							<br/>
+							<input type="text" class="patient_first_name" required="required">
+							<br/>
+							<br/>
+								Patient Last Name:
+							<br/>
+							<input type="text" class="patient_last_name">
+							<br/>
+							<br/>
+								Last 4 Digits of SS#:
+							<br/>
+							<input type="text" class="social">
+							<br/>
+							<br/>
+								Birthday:
+							<br/>
+							<input type="text" class="birthday">
+							<br/>
+							<br/>
+							<button class="request_button">Make a Request</button>
+							<br> 
+						</form>
 					</div>
+
+
+			
+
+
+				</div>
+				<div class="col-lg-4">
+					<div class="about_image"><img src="images/about_1.jpg" alt=""></div>
 				</div>
 
-				<!-- Info Box -->
-				<div class="col-lg-4 info_box_col">
-					<div class="info_box">
-						<div class="info_image"><img src="images/info_3.jpg" alt=""></div>
-						<div class="info_content">
-							<div class="info_title">Patients</div>
-							<div class="info_text">Click here to see a list of all authorized patients.</div>
-							<div class="button info_button"><a href="news.html"><span>Access</span><span>read more</span></a></div>
-						</div>
-					</div>
+				
+			</div>
+			<div class="row">
+				<div class="col">
+					
 				</div>
 			</div>
 		</div>
 	</div>
-				
+
+	<!-- SHOW RESULTS OF FORM HERE  -->
+	<div name="show_panel">
+	</div>
+
+	
+	<!-- Milestones -->
+
+	<div class="milestones">
+		<div class="container">
+			<div class="row">
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone d-flex flex-row align-items-center justify-content-start">
+						<div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="images/icon_7.svg" alt=""></div>
+						<div class="milestone_content">
+							<div class="milestone_counter" data-end-value="365">0</div>
+							<div class="milestone_text">Days a year</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone d-flex flex-row align-items-center justify-content-start">
+						<div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="images/icon_6.svg" alt=""></div>
+						<div class="milestone_content">
+							<div class="milestone_counter" data-end-value="25" data-sign-after="k">0</div>
+							<div class="milestone_text">Clinics</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone d-flex flex-row align-items-center justify-content-start">
+						<div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="images/icon_8.svg" alt=""></div>
+						<div class="milestone_content">
+							<div class="milestone_counter" data-end-value="950" data-sign-after="k">0</div>
+							<div class="milestone_text">U.S. Doctors</div>
+						</div>
+						
+					</div>
+				</div>
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone d-flex flex-row align-items-center justify-content-start">
+						<div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="images/icon_9.svg" alt=""></div>
+						<div class="milestone_content">
+							<div class="milestone_counter" data-end-value="20" data-sign-after="mil">0</div>
+							<div class="milestone_text">Records</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
 	<!-- Footer -->
 
 	<footer class="footer">
@@ -266,7 +301,7 @@
 								</ul>
 							</div>
 							<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </div>
 						</div>
@@ -323,16 +358,17 @@
 						<div class="footer_bar_content d-flex flex-sm-row flex-column align-items-lg-center align-items-start justify-content-start">
 							<nav class="footer_nav">
 								<ul class="d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-									<li class="active"><a href="index.html">Home</a></li>
-													<li><a href="requests.html">Requests</a></li>
-													<li><a href="patients.html">Patients</a></li>
-													<li><a href="records.html">Records</a></li>
+									<li class="active">
+										<a href="index.html">Home</a></li>
+											<li><a href="requests.html">Requests</a></li>
+											<li><a href="patients.html">Patients</a></li>
+											<li><a href="records.html">Records</a></li>
 													<li><a href="logout.html">Logout</a></li>
 								</ul>
 							</nav>
 							<div class="footer_links">
 								<ul class="d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-									<li><a href="contact.html">Help Desk</a></li>
+									<li><a href="#">Help Desk</a></li>
 								</ul>
 							</div>
 							<div class="footer_phone ml-lg-auto">
@@ -350,9 +386,16 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/requests.js"></script>
+<script src="js/about.js"></script>
+
 </body>
 </html>

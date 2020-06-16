@@ -118,4 +118,177 @@ $(document).ready(function()
 
 });
 
+const url="http://127.0.0.1:3000"
 
+fetch(`${url}/clinics`)
+.then(resp=>resp.json())
+.then(clinics => {
+for (const clinic of clinics){
+	clinicSelection(clinic)
+	otherClinics(clinic)
+}
+})
+
+function clinicSelection(clinic){
+	const selectForm=document.getElementById("info_form_dep")
+	const option=document.createElement("option")
+	option.textContent=clinic.name; 
+	selectForm.append(option)
+	option.dataset.ClinicId=clinic.id 
+}
+
+
+
+function otherClinics(clinic){
+	const clinicValue=document.getElementById("info_form_dep").value 
+		if (clinic.name !== clinicValue)
+		{requestingClinic(clinic)}
+}
+
+
+function requestingClinic(clinic){
+	const requestingSelect=document.getElementById("info_form_requesting")
+	const option=document.createElement("option")
+	option.textContent=clinic.name; 
+	requestingSelect.append(option)
+	option.dataset.otherClinicId=clinic.id 
+}
+
+fetch (`${url}/patients`)
+.then(resp=>resp.json())
+.then(patients => {
+for (const patient of patients){
+	showPatient(patient)
+}
+})
+
+function showPatient(patient){
+	const selectPatientForm=document.getElementById("info_form_patient")
+	const option=document.createElement("option")
+	option.textContent=`${patient.first_name} ${patient.last_name}`; 
+	selectPatientForm.append(option)
+	option.dataset.optionId=patient.id 
+}
+
+const requestForm=document.querySelector(".info_form")
+
+requestForm.addEventListener("submit", (e)=>{
+	const firstName=document.querySelector(".patient_first_name").value 
+	const lastName=document.querySelector(".patient_last_name").value 
+	const social=document.querySelector(".social").value 
+	const birthday=document.querySelector(".birthday").value 
+	e.preventDefault(); 
+	
+	const existing=document.getElementById("info_form_patient").value
+
+	if (existing === "Choose One"){
+		createNewPatient()
+	} else if (existing !== "Choose One") {
+		const patientInput=document.getElementById("info_form_patient") 
+		var patientChosen = patientInput.options[patientInput.selectedIndex]
+		var uid = patientChosen.getAttribute('optionId');
+		const patientId=patientChosen.dataset.optionId
+		existingNewRequest(patientId)
+	}
+	requestForm.reset();
+	submissionNotice()
+})
+
+function createNewPatient(){
+	const firstName=document.querySelector(".patient_first_name").value 
+	const lastName=document.querySelector(".patient_last_name").value 
+	const social=document.querySelector(".social").value 
+	const birthday=document.querySelector(".birthday").value 
+
+	const options={
+		method: 'POST', 
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+		body: JSON.stringify({
+			first_name: firstName, 
+			last_name: lastName, 
+			social: social, 
+			birthday: birthday, 
+		})
+	}
+
+	fetch(`${url}/patients`, options)
+	.then(resp=>resp.json())
+	.then(patient => {
+		console.log("patient",patient)
+	createNewRequest(patient)
+	})
+}
+
+function createNewRequest(patient){
+	const user_clinic=document.getElementById("info_form_dep") 
+	var myclinic = user_clinic.options[user_clinic.selectedIndex]
+	var uid = myclinic.getAttribute('clinicId');
+	const myClinicId= myclinic.dataset.ClinicId     
+	
+	const other_clinic=document.getElementById("info_form_requesting")
+	var otherClinic=other_clinic.options[other_clinic.selectedIndex]
+	var uid = otherClinic.getAttribute('otherClinicId');
+	const otherClinicId=otherClinic.dataset.otherClinicId  
+	
+	const options={
+		method: 'POST', 
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+		body: JSON.stringify({
+			user_clinic_id: myClinicId, 
+			other_clinic_id: otherClinicId,
+			status: "false", 
+			patient_id: patient.id, 
+		})
+	}
+	
+	fetch(`${url}/requests`, options)
+	.then(resp=>resp.json())
+	.then(request => {
+	console.log("request")
+	})
+}
+
+function submissionNotice(){
+	const div= document.querySelector(".col-log-5")
+	const p=document.createElement("p")
+	p.textContent="Your Request has been Submitted"
+
+	div.append(p)
+
+}
+
+function existingNewRequest(patientId) {
+	const user_clinic=document.getElementById("info_form_dep") 
+	var myclinic = user_clinic.options[user_clinic.selectedIndex]
+	var uid = myclinic.getAttribute('clinicId');
+	
+	const other_clinic=document.getElementById("info_form_requesting")
+	var otherClinic=other_clinic.options[other_clinic.selectedIndex]
+	var uid = otherClinic.getAttribute('otherClinicId');
+	
+	const options={
+		method: 'POST', 
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+		body: JSON.stringify({
+			user_clinic_id: myclinic.dataset.ClinicId, 
+			other_clinic_id: otherClinic.dataset.otherClinicId, 
+			status: "false", 
+			patient_id: patientId, 
+		})
+	}
+	
+	fetch(`${url}/requests`, options)
+	.then(resp=>resp.json())
+	.then(request => {
+	console.log("request")
+	})
+}

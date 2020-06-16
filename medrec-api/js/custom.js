@@ -228,3 +228,45 @@ $(document).ready(function()
 	}
 
 });
+const url="http://127.0.0.1:3000"
+
+fetch(`${url}/requests`)
+	.then(resp=>resp.json())
+	.then(requests => {
+		for (const request of requests){
+			if (request.user_clinic_id === 5 && request.status === "false"){
+				showRequest(request)
+			} else if (request.user_clinic_id === 5 && request.status === "true"){
+				completedRequest(request)
+			} else if (request.other_clinic_id === 5 && request.status === "false"){
+				requestReceived(request)
+			}
+			}
+		})
+	
+
+function showRequest(request){
+	const requestSent=document.querySelector(".request_sent_box")
+	const p=document.createElement('p')
+	p.textContent=`Request Number #${request.id}` 
+	p.style.color="black"
+	requestSent.append(p)
+}
+
+function completedRequest(request){
+	console.log("Goodbye")
+	const requestComplete=document.querySelector(".request_completed_box")
+	const p=document.createElement('p')
+	p.textContent=`Completed Request #${request.id}` 
+	p.style.color="black"
+	requestComplete.append(p)
+}
+
+function requestReceived(request){
+	console.log("Hello")
+	const requestReceived=document.querySelector(".request_received_box")
+	const p=document.createElement('p')
+	p.textContent=`Received Request #${request.id}` 
+	p.style.color="black"
+	requestReceived.append(p)
+}

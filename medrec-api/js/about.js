@@ -177,7 +177,3 @@ $(document).ready(function()
 
 });
 
-const form=document.querySelector(".info_form")
-const select=document.createElement("p")
-select.textContent="HELLO"
-form.append(select)

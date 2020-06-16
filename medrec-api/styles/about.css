@@ -1350,3 +1350,13 @@ section
 	font-size: 20px;
 	color: #32c69a;
 }
+
+.flex-container {
+	display: flex;
+  }
+  
+  .flex-container > div {
+	margin: 10px;
+	padding: 20px;
+	font-size: 30px;
+  }
