@@ -17,7 +17,7 @@
 10. FAQ
 11. Latest News
 12. Footer
-
+13. Access Card (added)
 
 ******************************/
 
@@ -827,7 +827,7 @@ section
 }
 .home_title
 {
-	font-size: 60px;
+	font-size: 40px;
 	font-weight: 600;
 	color: #FFFFFF;
 	max-width: 570px;
@@ -835,7 +835,7 @@ section
 }
 .home_text
 {
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 600;
 	color: #FFFFFF;
 	line-height: 1.875;
@@ -1694,5 +1694,33 @@ section
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 20px;
+	color: #32c69a;
+}
+
+/*********************************
+13. Access Card
+*********************************/
+.access{
+	display: none;
+	position: inherit;
+	/* z-index: 1;
+	width: 50%;
+	height: 100%;
+	left: 0;
+	margin: 0;
+	padding 0; */
+}
+.access .container{
+	position: absolute;
+	background-color: #4c4c4c;
+	
+	width: 300px;
+	height: 400px;
+	padding: 30px;
+
+}
+
+.login-card{
+	font-size: 14pt;
 	color: #32c69a;
 }

@@ -48,6 +48,7 @@
 
 	<div class="home">
 		<div class="background_image" style="background-image:url(images/index_hero.jpg)"></div>
+		
 
 		<!-- Header -->
 
@@ -87,7 +88,7 @@
 										<div class="header_nav_content d-flex flex-row align-items-center justify-content-start">
 											<nav class="main_nav">
 												<ul class="d-flex flex-row align-items-center justify-content-start">
-													<li class="active"><a href="login.html">LOGIN</a></li>
+													<li class="inactive"><a href="login.html">LOGIN</a></li>
 												
 												</ul>
 											</nav>
@@ -112,18 +113,35 @@
 				<div class="row">
 					<div class="col">
 						<div class="home_content">
-							<div class="home_title">Medical Communication that you can trust</div>
+							<div class="home_title">Medical Communication you can trust</div>
 							<div class="home_text">MedRec is an easy to use web application aimed at simplifying patient records requests between
 								<br> offices. This means requests are never forgotten
 								<br> in a pile of paperwork.</div>
-							
+							<div class = "access">
+								<div class ="container">
+									<div class="row">
+										<div class="col">
+											<div class="login-card">
+												<form action="">
+													<label for="username" required>Username:</label><br>
+													<input type="text" placeholder="ex. MD_Anderson"><br><br>
+													<label for="password" required>Password:</label><br>
+													<input type="password"><br><br>
+													<a href="index.html"><input type="submit" value="Sign in"></a>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+		
 	
 	
 		<div class="footer_bar">
@@ -153,6 +171,8 @@
 	</footer>
 </div>
 
+
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
@@ -160,5 +180,6 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
+<script src = "js/login.js"></script>
 </body>
 </html>
