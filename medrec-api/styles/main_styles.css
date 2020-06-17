@@ -1744,3 +1744,31 @@ section
 	text-decoration: none;
 	cursor: pointer;
   }
+
+  /*********************************
+13. Access Card
+*********************************/
+.access{
+	display: none;
+	position: inherit;
+	/* z-index: 1;
+	width: 50%;
+	height: 100%;
+	left: 0;
+	margin: 0;
+	padding 0; */
+}
+.access .container{
+	position: absolute;
+	background-color: #4c4c4c;
+	
+	width: 300px;
+	height: 400px;
+	padding: 30px;
+
+}
+
+.login-card{
+	font-size: 14pt;
+	color: #32c69a;
+}
