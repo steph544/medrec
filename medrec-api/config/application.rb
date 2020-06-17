@@ -21,13 +21,14 @@ Bundler.require(*Rails.groups)
 
 module MedrecApi
   class Application < Rails::Application
+    
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
           origins '*'
-          resource '*', headers: :any, methods: [:get, :post]
+          resource '*', headers: :any, methods: [:get, :post, :patch, :delete, :options]
       end
     end
 
