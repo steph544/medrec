@@ -420,17 +420,12 @@ function addRecordToAccordian(){
 	.then(resp=>resp.json())
 	.then(records => {
 		for (const record of records){
-			if (request.user_clinic_id === 22 && request.status === "Open"){
-				showRequest(request)
-			} else if (request.other_clinic_id === 22 && request.status === "Completed"){
-				completedRequest(request)
-			} else if (request.other_clinic_id === 22 && request.status === "Open"){
-				requestReceived(request)
-			}
+			showRecord(record)
 			}
 		})
+}
 
-fetch()    
+function showRecord(record){
 const accordian= document.querySelector(".accordions")
 
 const div= document.createElement("div")
@@ -440,6 +435,8 @@ const divFlex=document.createElement("div")
 divFlex.classList.add("accordion d-flex flex-row align-items-center")
 
 const emptyDiv=document.createElement("div")
+emptyDiv.textContent=`Record Number #${record.id}`
 
+devFlex.append(emptyDiv)
 
 }
