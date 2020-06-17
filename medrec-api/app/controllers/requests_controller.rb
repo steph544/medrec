@@ -22,7 +22,18 @@ class RequestsController < ApplicationController
 
     def update 
         request=Request.find(params[:id])
-        request.update(params[:status])
+        request.update(request_params)
+        render json: request.to_json(:except => [:updated_at, :created_at])
     end 
 
+    def destroy 
+        request=Request.find(params[:id])
+        request.destroy 
+        render json: request.to_json(:except => [:updated_at, :created_at])
+    end 
+
+    private
+    def request_params
+        params.require(:request).permit(:status, :id)
+    end
 end

@@ -291,3 +291,8 @@ function existingNewRequest(patientId) {
 		requestForm.reset();
 	})
 }
+
+const requestButton=document.querySelector(".request_button")
+requestButton.style.padding = "10px 10px 10px 10px";
+requestButton.style.width = "350px"; 
+requestButton.style.backgroundColor = "MediumAquaMarine";

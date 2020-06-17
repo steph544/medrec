@@ -236,7 +236,7 @@ fetch(`${url}/requests`)
 		for (const request of requests){
 			if (request.user_clinic_id === 22 && request.status === "Open"){
 				showRequest(request)
-			} else if (request.user_clinic_id === 22 && request.status === "Completed"){
+			} else if (request.other_clinic_id === 22 && request.status === "Completed"){
 				completedRequest(request)
 			} else if (request.other_clinic_id === 22 && request.status === "Open"){
 				requestReceived(request)
@@ -341,10 +341,14 @@ function modalContentRequestsSent(request){
 	const modalContent=document.querySelector(".modal-p")
 	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}`
 	modalContent.style.color="black" 
+	deleteBtn(request)
 }
 
 function modalContentRequestsComplete(request){
-
+	const modalContent=document.querySelector(".modal-p")
+	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}`
+	modalContent.style.color="black" 
+	deleteBtn(request)
 }
 
 function modalContentRequestsReceived(request){
@@ -363,14 +367,14 @@ function modalContentRequestsReceived(request){
 	btn.addEventListener("click", (e)=>{
 		e.preventDefault();
 
-		const options={
-			method: 'PATCH', 
-			headers: {
-				"Content-Type": "application/json",
-				"Accept": "application/json"
+		const options = {
+			method: 'PATCH',
+			headers: { 
+			  'Content-Type': 'application/json',
+			  'Accept': 'application/json'
 			},
 			body: JSON.stringify({
-				id: request.id, 
+				id: request.id,
 				status: "Completed" 
 			})
 		}
@@ -378,12 +382,37 @@ function modalContentRequestsReceived(request){
 		fetch(`${url}/requests/${request.id}`, options)
 		.then(resp=>resp.json())
 		.then(request => {
-		console.log("updated")
+			modalContent.textContent= "Request Has Been Authorized"
 		})
-
 	})
-	
-	
-
-
 }
+
+function deleteBtn(request){
+	const btn=document.createElement("button")
+	const modalContent2=document.querySelector(".modal-p")
+	const br=document.createElement("br")
+
+	btn.style.padding = "10px 10px 10px 10px";
+	btn.style.width = "300px"; 
+	btn.style.backgroundColor = "MediumAquaMarine";
+	btn.textContent= "Delete Request"
+	modalContent2.append(br, btn)
+
+	btn.addEventListener("click", (e)=>{
+		e.preventDefault();
+		const options = {
+			method: 'DELETE', 
+			body: JSON.stringify({
+				id: request.id, 
+			})
+		};
+		fetch(`${url}/requests/${request.id}`, options)
+		.then(res => res.json())
+		.then(request => {
+			modalContent2.textContent= "Request Has Been Deleted"
+		})
+	})
+}
+
+
+
