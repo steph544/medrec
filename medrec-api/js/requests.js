@@ -134,7 +134,7 @@ function clinicSelection(clinic){
 	const option=document.createElement("option")
 	option.textContent=clinic.name; 
 	selectForm.append(option)
-	option.dataset.ClinicId=clinic.id 
+	option.dataset.clinicId=clinic.id 
 }
 
 
@@ -190,7 +190,7 @@ requestForm.addEventListener("submit", (e)=>{
 		const patientId=patientChosen.dataset.optionId
 		existingNewRequest(patientId)
 	}
-	requestForm.reset();
+
 	submissionNotice()
 })
 
@@ -224,14 +224,12 @@ function createNewPatient(){
 
 function createNewRequest(patient){
 	const user_clinic=document.getElementById("info_form_dep") 
-	var myclinic = user_clinic.options[user_clinic.selectedIndex]
-	var uid = myclinic.getAttribute('clinicId');
-	const myClinicId= myclinic.dataset.ClinicId     
+	var myclinic = user_clinic.options[user_clinic.selectedIndex].dataset.clinicId
+
 	
 	const other_clinic=document.getElementById("info_form_requesting")
-	var otherClinic=other_clinic.options[other_clinic.selectedIndex]
-	var uid = otherClinic.getAttribute('otherClinicId');
-	const otherClinicId=otherClinic.dataset.otherClinicId  
+	var otherClinic=other_clinic.options[other_clinic.selectedIndex].dataset.otherClinicId
+
 	
 	const options={
 		method: 'POST', 
@@ -240,9 +238,9 @@ function createNewRequest(patient){
 			"Accept": "application/json"
 		},
 		body: JSON.stringify({
-			user_clinic_id: myClinicId, 
-			other_clinic_id: otherClinicId,
-			status: "false", 
+			user_clinic_id: myclinic, 
+			other_clinic_id: otherClinic,
+			status: "Open", 
 			patient_id: patient.id, 
 		})
 	}
@@ -285,10 +283,11 @@ function existingNewRequest(patientId) {
 			patient_id: patientId, 
 		})
 	}
+	const requestForm= document.querySelector(".info-form")
 	
 	fetch(`${url}/requests`, options)
 	.then(resp=>resp.json())
 	.then(request => {
-	console.log("request")
+		requestForm.reset();
 	})
 }

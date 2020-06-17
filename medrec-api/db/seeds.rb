@@ -21,7 +21,7 @@ r1=Record.create!(patient_id:p1.id, clinic: Clinic.all.sample, description:"reco
 r2=Record.create!(patient_id:p2.id, clinic: Clinic.all.sample, description:"record requests 2")
 
 
-Request.create!(patient_id:p1.id, status: "true", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
-Request.create!(patient_id:p2.id, status:"true", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
-Request.create!(patient_id:p2.id, status:"false", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
-Request.create!(patient_id:p1.id, status:"false", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
+Request.create!(patient_id:p1.id, status: "Open", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
+Request.create!(patient_id:p2.id, status:"Open", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
+Request.create!(patient_id:p2.id, status:"Completed", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)
+Request.create!(patient_id:p1.id, status:"Completed", user_clinic_id: Clinic.all.sample.id, other_clinic_id: Clinic.all.sample.id)

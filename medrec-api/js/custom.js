@@ -234,11 +234,11 @@ fetch(`${url}/requests`)
 	.then(resp=>resp.json())
 	.then(requests => {
 		for (const request of requests){
-			if (request.user_clinic_id === 5 && request.status === "false"){
+			if (request.user_clinic_id === 22 && request.status === "Open"){
 				showRequest(request)
-			} else if (request.user_clinic_id === 5 && request.status === "true"){
+			} else if (request.user_clinic_id === 22 && request.status === "Completed"){
 				completedRequest(request)
-			} else if (request.other_clinic_id === 5 && request.status === "false"){
+			} else if (request.other_clinic_id === 22 && request.status === "Open"){
 				requestReceived(request)
 			}
 			}
@@ -247,26 +247,143 @@ fetch(`${url}/requests`)
 
 function showRequest(request){
 	const requestSent=document.querySelector(".request_sent_box")
-	const p=document.createElement('p')
-	p.textContent=`Request Number #${request.id}` 
-	p.style.color="black"
-	requestSent.append(p)
+	const modal = document.getElementById("myModal");
+	const btn = document.createElement("button");
+	btn.textContent=`Request Number #${request.id}` 
+	btn.style.padding = "10px 10px 10px 10px";
+	btn.style.width = "300px"; 
+	btn.dataset.requestId=request.id 
+	const p =document.createElement("p")
+	requestSent.append(btn, p)
+
+	const span = document.getElementsByClassName("close")[0];
+	span.onclick = function() {
+  	modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+  		if (event.target == modal) {
+    	modal.style.display = "none";
+  		}
+		}
+
+	btn.addEventListener("click", (e)=>{
+		const requestId=e.target.dataset.requestId 
+		modal.style.display = "block";
+		modalContentRequestsSent(request)
+	})
 }
 
 function completedRequest(request){
-	console.log("Goodbye")
 	const requestComplete=document.querySelector(".request_completed_box")
-	const p=document.createElement('p')
-	p.textContent=`Completed Request #${request.id}` 
-	p.style.color="black"
-	requestComplete.append(p)
+	const modal = document.getElementById("myModal");
+	const btn = document.createElement("button");
+	const p=document.createElement("p")
+
+	btn.textContent=`Request Number #${request.id}` 
+	btn.style.padding = "10px 10px 10px 10px";
+	btn.style.width = "300px"; 
+	btn.dataset.requestId=request.id 
+
+	requestComplete.append(btn, p)
+
+	const span = document.getElementsByClassName("close")[0];
+	span.onclick = function() {
+  	modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+  		if (event.target == modal) {
+    	modal.style.display = "none";
+  		}
+		}
+
+	btn.addEventListener("click", (e)=>{
+		const requestId=e.target.dataset.requestId 
+		modal.style.display = "block";
+		modalContentRequestsComplete(request)
+	})
 }
 
 function requestReceived(request){
-	console.log("Hello")
 	const requestReceived=document.querySelector(".request_received_box")
-	const p=document.createElement('p')
-	p.textContent=`Received Request #${request.id}` 
-	p.style.color="black"
-	requestReceived.append(p)
+	const modal = document.getElementById("myModal");
+	const btn = document.createElement("button");
+	const p=document.createElement("p")
+
+	btn.style.padding = "10px 10px 10px 10px";
+	btn.style.width = "300px"; 
+	
+
+	btn.textContent=`Request Number #${request.id}` 
+	btn.dataset.requestId=request.id 
+	requestReceived.append(btn, p)
+
+	const span = document.getElementsByClassName("close")[0];
+	span.onclick = function() {
+  	modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+  		if (event.target == modal) {
+    	modal.style.display = "none";
+  		}
+		}
+
+	btn.addEventListener("click", (e)=>{
+		const requestId=e.target.dataset.requestId 
+		modal.style.display = "block";
+		modalContentRequestsReceived(request)
+	})
+}
+
+function modalContentRequestsSent(request){
+	const modalContent=document.querySelector(".modal-p")
+	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}`
+	modalContent.style.color="black" 
+}
+
+function modalContentRequestsComplete(request){
+
+}
+
+function modalContentRequestsReceived(request){
+	const modalContent=document.querySelector(".modal-p")
+	const btn=document.createElement("button")
+	btn.style.padding = "10px 10px 10px 10px";
+	btn.style.width = "300px"; 
+	btn.style.backgroundColor = "MediumAquaMarine";
+	btn.textContent="Yes"
+
+	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}
+	<br/> Would you like to authorize this Clinic? <br/>`
+	modalContent.style.color="black" 
+	modalContent.append(btn)
+
+	btn.addEventListener("click", (e)=>{
+		e.preventDefault();
+
+		const options={
+			method: 'PATCH', 
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			},
+			body: JSON.stringify({
+				id: request.id, 
+				status: "Completed" 
+			})
+		}
+		
+		fetch(`${url}/requests/${request.id}`, options)
+		.then(resp=>resp.json())
+		.then(request => {
+		console.log("updated")
+		})
+
+	})
+	
+	
+
+
 }
