@@ -1298,3 +1298,173 @@ Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 9156
   [1m[36mClinic Load (0.3ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mClinic Load (0.3ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mClinic Load (1.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Destroy (0.5ms)[0m  [1m[31mDELETE FROM "clinics" WHERE "clinics"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Destroy (0.4ms)[0m  [1m[31mDELETE FROM "clinics" WHERE "clinics"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Destroy (0.4ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Destroy (0.4ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = ?[0m  [["id", 6]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecord Destroy (0.4ms)[0m  [1m[31mDELETE FROM "records" WHERE "records"."id" = ?[0m  [["id", 5]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecord Destroy (0.3ms)[0m  [1m[31mDELETE FROM "records" WHERE "records"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 10]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 11]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 12]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Create (0.7ms)[0m  [1m[32mINSERT INTO "clinics" ("name", "address", "city", "state", "zip", "phone", "fax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MD Anderson"], ["address", "example"], ["city", "Houston"], ["state", "TX"], ["zip", 77777], ["phone", "713-444-0000"], ["fax", "713-444-1111"], ["created_at", "2020-06-15 22:40:04.210333"], ["updated_at", "2020-06-15 22:40:04.210333"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Create (0.5ms)[0m  [1m[32mINSERT INTO "clinics" ("name", "address", "city", "state", "zip", "phone", "fax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kelsey Seybold"], ["address", "example"], ["city", "Houston"], ["state", "TX"], ["zip", 77777], ["phone", "713-444-0000"], ["fax", "713-444-1111"], ["created_at", "2020-06-15 22:40:04.218095"], ["updated_at", "2020-06-15 22:40:04.218095"]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Create (0.5ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "social", "birthday", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Stephanie"], ["last_name", "Cheney"], ["social", "0000"], ["birthday", "01-01-2004"], ["created_at", "2020-06-15 22:40:04.228437"], ["updated_at", "2020-06-15 22:40:04.228437"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "social", "birthday", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Edwin"], ["last_name", "Calvillo"], ["social", "0000"], ["birthday", "01-01-1989"], ["created_at", "2020-06-15 22:40:04.234566"], ["updated_at", "2020-06-15 22:40:04.234566"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("patient_id", "clinic_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["patient_id", 7], ["clinic_id", 7], ["description", "record requests"], ["created_at", "2020-06-15 22:40:04.248831"], ["updated_at", "2020-06-15 22:40:04.248831"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.0ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("patient_id", "clinic_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["patient_id", 8], ["clinic_id", 8], ["description", "record requests 2"], ["created_at", "2020-06-15 22:40:04.259051"], ["updated_at", "2020-06-15 22:40:04.259051"]]
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRequest Create (1.6ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 7], ["other_clinic_id", 8], ["patient_id", 7], ["status", "true"], ["created_at", "2020-06-15 22:40:04.277239"], ["updated_at", "2020-06-15 22:40:04.277239"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 8], ["other_clinic_id", 7], ["patient_id", 8], ["status", "true"], ["created_at", "2020-06-15 22:40:04.290535"], ["updated_at", "2020-06-15 22:40:04.290535"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 7], ["other_clinic_id", 8], ["patient_id", 8], ["status", "false"], ["created_at", "2020-06-15 22:40:04.307824"], ["updated_at", "2020-06-15 22:40:04.307824"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 7], ["other_clinic_id", 8], ["patient_id", 7], ["status", "false"], ["created_at", "2020-06-15 22:40:04.320215"], ["updated_at", "2020-06-15 22:40:04.320215"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mClinic Load (0.3ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Destroy (0.6ms)[0m  [1m[31mDELETE FROM "clinics" WHERE "clinics"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Destroy (0.4ms)[0m  [1m[31mDELETE FROM "clinics" WHERE "clinics"."id" = ?[0m  [["id", 8]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Destroy (0.4ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = ?[0m  [["id", 7]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Destroy (0.4ms)[0m  [1m[31mDELETE FROM "patients" WHERE "patients"."id" = ?[0m  [["id", 8]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecord Destroy (0.5ms)[0m  [1m[31mDELETE FROM "records" WHERE "records"."id" = ?[0m  [["id", 7]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecord Destroy (0.4ms)[0m  [1m[31mDELETE FROM "records" WHERE "records"."id" = ?[0m  [["id", 8]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 13]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 14]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 15]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (0.4ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 16]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Create (0.4ms)[0m  [1m[32mINSERT INTO "clinics" ("name", "address", "city", "state", "zip", "phone", "fax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MD Anderson"], ["address", "example"], ["city", "Houston"], ["state", "TX"], ["zip", 77777], ["phone", "713-444-0000"], ["fax", "713-444-1111"], ["created_at", "2020-06-15 22:40:52.111532"], ["updated_at", "2020-06-15 22:40:52.111532"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Create (0.5ms)[0m  [1m[32mINSERT INTO "clinics" ("name", "address", "city", "state", "zip", "phone", "fax", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kelsey Seybold"], ["address", "example"], ["city", "Houston"], ["state", "TX"], ["zip", 77777], ["phone", "713-444-0000"], ["fax", "713-444-1111"], ["created_at", "2020-06-15 22:40:52.118049"], ["updated_at", "2020-06-15 22:40:52.118049"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "social", "birthday", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Stephanie"], ["last_name", "Cheney"], ["social", "0000"], ["birthday", "01-01-2004"], ["created_at", "2020-06-15 22:40:52.124669"], ["updated_at", "2020-06-15 22:40:52.124669"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Create (0.5ms)[0m  [1m[32mINSERT INTO "patients" ("first_name", "last_name", "social", "birthday", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Edwin"], ["last_name", "Calvillo"], ["social", "0000"], ["birthday", "01-01-1989"], ["created_at", "2020-06-15 22:40:52.130690"], ["updated_at", "2020-06-15 22:40:52.130690"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("patient_id", "clinic_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["patient_id", 9], ["clinic_id", 9], ["description", "record requests"], ["created_at", "2020-06-15 22:40:52.148889"], ["updated_at", "2020-06-15 22:40:52.148889"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("patient_id", "clinic_id", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["patient_id", 10], ["clinic_id", 10], ["description", "record requests 2"], ["created_at", "2020-06-15 22:40:52.159563"], ["updated_at", "2020-06-15 22:40:52.159563"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.2ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 9], ["other_clinic_id", 10], ["patient_id", 9], ["status", "true"], ["created_at", "2020-06-15 22:40:52.177671"], ["updated_at", "2020-06-15 22:40:52.177671"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.4ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 10], ["other_clinic_id", 9], ["patient_id", 10], ["status", "true"], ["created_at", "2020-06-15 22:40:52.191495"], ["updated_at", "2020-06-15 22:40:52.191495"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 9], ["other_clinic_id", 10], ["patient_id", 10], ["status", "false"], ["created_at", "2020-06-15 22:40:52.203119"], ["updated_at", "2020-06-15 22:40:52.203119"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mClinic Load (0.1ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" WHERE "clinics"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_clinic_id", "other_clinic_id", "patient_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_clinic_id", 9], ["other_clinic_id", 10], ["patient_id", 9], ["status", "false"], ["created_at", "2020-06-15 22:40:52.214368"], ["updated_at", "2020-06-15 22:40:52.214368"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mClinic Load (0.3ms)[0m  [1m[34mSELECT "clinics".* FROM "clinics" LIMIT ?[0m  [["LIMIT", 11]]
