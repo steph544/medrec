@@ -7,3 +7,5 @@ fetch(url)
 })
 
 
+document.querySelector('.col text-center')
+document.createElement('div')
