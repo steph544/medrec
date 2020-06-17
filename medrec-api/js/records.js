@@ -416,7 +416,21 @@ function deleteBtn(request){
 
 function addRecordToAccordian(){
 
-    
+    fetch(`${url}/records`)
+	.then(resp=>resp.json())
+	.then(records => {
+		for (const record of records){
+			if (request.user_clinic_id === 22 && request.status === "Open"){
+				showRequest(request)
+			} else if (request.other_clinic_id === 22 && request.status === "Completed"){
+				completedRequest(request)
+			} else if (request.other_clinic_id === 22 && request.status === "Open"){
+				requestReceived(request)
+			}
+			}
+		})
+
+fetch()    
 const accordian= document.querySelector(".accordions")
 
 const div= document.createElement("div")
