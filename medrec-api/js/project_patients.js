@@ -9,3 +9,12 @@ fetch(url)
 
 document.querySelector('.col text-center')
 document.createElement('div')
+
+const selectButton = document.querySelector(‘.patients-form’)
+selectButton.addEventListener(‘submit’, () =>{
+    event.preventDefault();
+    const selectH2 = document.querySelector(‘.display-patient-name’)
+    selectH2.innerHTML = “Patient Added”
+    selectH2.style.color="black"
+    selectButton.reset()
+})

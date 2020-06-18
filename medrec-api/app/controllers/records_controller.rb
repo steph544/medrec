@@ -14,6 +14,12 @@ class RecordsController < ApplicationController
         end
     end 
 
+    def update 
+        record=Record.find(params[:id])
+        record.update(record_params)
+        render json: record.to_json(:except => [:updated_at, :created_at])
+    end 
+
     def show 
         record=Record.find(params[:id])
         render json: record.to_json(:except => [:updated_at, :created_at])

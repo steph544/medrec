@@ -250,7 +250,54 @@ updateBtn2.textContent= "Update Record"
 // When the user clicks on the button, open the modal
 updateBtn2.addEventListener("click",()=>{
 	modal2.style.display = "block";
+
+	fetch(`${url}/records`)
+	.then(resp=>resp.json())
+	.then(records => { records.forEach(record=>{
+		updateRecordList(record)
+	})
+	})
+
+
   })
+
+function updateRecordList(record){
+	
+		const selectForm=document.getElementById("info_form_updating")
+		const option=document.createElement("option")
+		option.textContent=record.id; 
+		selectForm.append(option)
+		option.dataset.updatingId=record.id 
+
+		const changeBtn=document.querySelector(".change_button")
+		changeBtn.addEventListener("click",(e)=>{
+			e.preventDefault();
+			const updateComment=document.querySelector(".record_update_form").value 
+			// const updateForm=document.querySelector(".modal-content2")
+			const updateP=document.querySelector(".modal2-p")
+			updateP.textContent="Record has been updated"
+
+			const options = {
+				method: 'PATCH',
+				headers: { 
+				  'Content-Type': 'application/json',
+				  'Accept': 'application/json'
+				},
+				body: JSON.stringify({
+					id: record.id, 
+					description: updateComment
+				})
+			}
+			
+			fetch(`${url}/records/${record.id}`, options)
+			.then(resp=>resp.json())
+			.then(record => {
+			console.log("done")
+			})
+		})
+	
+}
+
   
   // When the user clicks on <span> (x), close the modal
   span2.onclick = function() {
@@ -264,12 +311,7 @@ updateBtn2.addEventListener("click",()=>{
 	}
   }
 
-// fetch(`${url}/records`)
-// .then(resp=>resp.json())
-// .then(records => {
-// 	modalContent.textContent= "Record has been updated."
 
-// })
 
 
 function showRecord(record){
