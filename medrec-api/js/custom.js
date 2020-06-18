@@ -370,7 +370,8 @@ function modalContentRequestsReceived(request){
 
 	btn.addEventListener("click", (e)=>{
 		e.preventDefault();
-
+		const completedBox=document.querySelector(".request_completed_box")
+		const p=document.createElement("p")
 		const options = {
 			method: 'PATCH',
 			headers: { 
@@ -387,6 +388,13 @@ function modalContentRequestsReceived(request){
 		.then(resp=>resp.json())
 		.then(request => {
 			modalContent.textContent= "Request Has Been Authorized"
+			let btnArray=document.querySelectorAll(".button_list")
+			for (let i=0; i<btnArray.length; i++){
+				if (btnArray[i].getAttribute("data-request-id") == request.id){
+					btnArray[i].remove()
+					completedBox.append(btnArray[i])
+				}
+			}
 			
 		})
 	})

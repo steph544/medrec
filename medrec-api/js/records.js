@@ -289,7 +289,7 @@ function updateRecordList(record){
 				})
 			}
 			
-			fetch(`${url}/records/${record.id}`, options)
+			fetch(`${url}/records/${option.value}`, options)
 			.then(resp=>resp.json())
 			.then(record => {
 			console.log("done")
