@@ -192,6 +192,8 @@ requestForm.addEventListener("submit", (e)=>{
 	}
 
 	submissionNotice()
+	const p=document.querySelector(".submission")
+	
 })
 
 function createNewPatient(){
@@ -229,7 +231,7 @@ function createNewRequest(patient){
 	
 	const other_clinic=document.getElementById("info_form_requesting")
 	var otherClinic=other_clinic.options[other_clinic.selectedIndex].dataset.otherClinicId
-
+	const form= document.querySelector(".info_form")
 	
 	const options={
 		method: 'POST', 
@@ -248,17 +250,19 @@ function createNewRequest(patient){
 	fetch(`${url}/requests`, options)
 	.then(resp=>resp.json())
 	.then(request => {
-	console.log("request")
+		form.reset()
 	})
 }
 
 function submissionNotice(){
 	const div= document.querySelector(".col-log-5")
 	const p=document.createElement("p")
+	p.classList.add("submission")
+	
 	p.textContent="Your Request has been Submitted"
+	p.style.color="black"
 
 	div.append(p)
-
 }
 
 function existingNewRequest(patientId) {
@@ -284,7 +288,6 @@ function existingNewRequest(patientId) {
 		})
 	}
 	const requestForm= document.querySelector(".info-form")
-	
 	fetch(`${url}/requests`, options)
 	.then(resp=>resp.json())
 	.then(request => {

@@ -230,191 +230,6 @@ $(document).ready(function()
 });
 const url="http://127.0.0.1:3000"
 
-fetch(`${url}/requests`)
-	.then(resp=>resp.json())
-	.then(requests => {
-		for (const request of requests){
-			if (request.user_clinic_id === 22 && request.status === "Open"){
-				showRequest(request)
-			} else if (request.other_clinic_id === 22 && request.status === "Completed"){
-				completedRequest(request)
-			} else if (request.other_clinic_id === 22 && request.status === "Open"){
-				requestReceived(request)
-			}
-			}
-		})
-	
-
-function showRequest(request){
-	const requestSent=document.querySelector(".request_sent_box")
-	const modal = document.getElementById("myModal");
-	const btn = document.createElement("button");
-	btn.textContent=`Request Number #${request.id}` 
-	btn.style.padding = "10px 10px 10px 10px";
-	btn.style.width = "300px"; 
-	btn.dataset.requestId=request.id 
-	const p =document.createElement("p")
-	requestSent.append(btn, p)
-
-	const span = document.getElementsByClassName("close")[0];
-	span.onclick = function() {
-  	modal.style.display = "none";
-	}
-
-	window.onclick = function(event) {
-  		if (event.target == modal) {
-    	modal.style.display = "none";
-  		}
-		}
-
-	btn.addEventListener("click", (e)=>{
-		const requestId=e.target.dataset.requestId 
-		modal.style.display = "block";
-		modalContentRequestsSent(request)
-	})
-}
-
-function completedRequest(request){
-	const requestComplete=document.querySelector(".request_completed_box")
-	const modal = document.getElementById("myModal");
-	const btn = document.createElement("button");
-	const p=document.createElement("p")
-
-	btn.textContent=`Request Number #${request.id}` 
-	btn.style.padding = "10px 10px 10px 10px";
-	btn.style.width = "300px"; 
-	btn.dataset.requestId=request.id 
-
-	requestComplete.append(btn, p)
-
-	const span = document.getElementsByClassName("close")[0];
-	span.onclick = function() {
-  	modal.style.display = "none";
-	}
-
-	window.onclick = function(event) {
-  		if (event.target == modal) {
-    	modal.style.display = "none";
-  		}
-		}
-
-	btn.addEventListener("click", (e)=>{
-		const requestId=e.target.dataset.requestId 
-		modal.style.display = "block";
-		modalContentRequestsComplete(request)
-	})
-}
-
-function requestReceived(request){
-	const requestReceived=document.querySelector(".request_received_box")
-	const modal = document.getElementById("myModal");
-	const btn = document.createElement("button");
-	const p=document.createElement("p")
-
-	btn.style.padding = "10px 10px 10px 10px";
-	btn.style.width = "300px"; 
-	
-
-	btn.textContent=`Request Number #${request.id}` 
-	btn.dataset.requestId=request.id 
-	requestReceived.append(btn, p)
-
-	const span = document.getElementsByClassName("close")[0];
-	span.onclick = function() {
-  	modal.style.display = "none";
-	}
-
-	window.onclick = function(event) {
-  		if (event.target == modal) {
-    	modal.style.display = "none";
-  		}
-		}
-
-	btn.addEventListener("click", (e)=>{
-		const requestId=e.target.dataset.requestId 
-		modal.style.display = "block";
-		modalContentRequestsReceived(request)
-	})
-}
-
-function modalContentRequestsSent(request){
-	const modalContent=document.querySelector(".modal-p")
-	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}`
-	modalContent.style.color="black" 
-	deleteBtn(request)
-}
-
-function modalContentRequestsComplete(request){
-	const modalContent=document.querySelector(".modal-p")
-	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}`
-	modalContent.style.color="black" 
-	deleteBtn(request)
-}
-
-function modalContentRequestsReceived(request){
-	const modalContent=document.querySelector(".modal-p")
-	const btn=document.createElement("button")
-	btn.style.padding = "10px 10px 10px 10px";
-	btn.style.width = "300px"; 
-	btn.style.backgroundColor = "MediumAquaMarine";
-	btn.textContent="Yes"
-
-	modalContent.innerHTML=`PATIENT ID: ${request.patient_id} <br/> OTHER CLINIC ID: ${request.other_clinic_id}<br/> STATUS: ${request.status}
-	<br/> Would you like to authorize this Clinic? <br/>`
-	modalContent.style.color="black" 
-	modalContent.append(btn)
-
-	btn.addEventListener("click", (e)=>{
-		e.preventDefault();
-
-		const options = {
-			method: 'PATCH',
-			headers: { 
-			  'Content-Type': 'application/json',
-			  'Accept': 'application/json'
-			},
-			body: JSON.stringify({
-				id: request.id,
-				status: "Completed" 
-			})
-		}
-		
-		fetch(`${url}/requests/${request.id}`, options)
-		.then(resp=>resp.json())
-		.then(request => {
-			modalContent.textContent= "Request Has Been Authorized"
-		})
-	})
-}
-
-function deleteBtn(request){
-	const btn=document.createElement("button")
-	const modalContent2=document.querySelector(".modal-p")
-	const br=document.createElement("br")
-
-	btn.style.padding = "10px 10px 10px 10px";
-	btn.style.width = "300px"; 
-	btn.style.backgroundColor = "MediumAquaMarine";
-	btn.textContent= "Delete Request"
-	modalContent2.append(br, btn)
-
-	btn.addEventListener("click", (e)=>{
-		e.preventDefault();
-		const options = {
-			method: 'DELETE', 
-			body: JSON.stringify({
-				id: request.id, 
-			})
-		};
-		fetch(`${url}/requests/${request.id}`, options)
-		.then(res => res.json())
-		.then(request => {
-			modalContent2.textContent= "Request Has Been Deleted"
-		})
-	})
-}
-
-function addRecordToAccordian(){
 
     fetch(`${url}/records`)
 	.then(resp=>resp.json())
@@ -423,20 +238,262 @@ function addRecordToAccordian(){
 			showRecord(record)
 			}
 		})
-}
+
+// const updateBtn=document.getElementById("myBtn2")
+// updateBtn.style.padding = "10px 10px 10px 10px";
+// updateBtn.style.width = "300px"; 
+// updateBtn.style.backgroundColor = "MediumAquaMarine";
+// updateBtn.textContent= "Update Record"
+// updateBtn.addEventListener("click", (e)=>{
+// 	const span2 = document.getElementsByClassName("close2")[0];
+// 	const modal2 = document.getElementById("myModal2");
+// 	  // When the user clicks on <span> (x), close the modal
+// 	  span2.onclick = function() {
+// 		modal2.style.display = "none";
+// 	  }
+	  
+// 	  // When the user clicks anywhere outside of the modal, close it
+// 	  window.onclick = function(event) {
+// 		if (event.target == modal2) {
+// 		  modal2.style.display = "none";
+// 		}
+// 	  }
+// 	modal2.style.display = "block"; 
+// })
+
+// const modalContent2=document.querySelector(".modal-content2")
+// modalContent2.textContent="HELLO"
+
+
+
+// const options2 = {
+// 	method: 'PATCH',
+// 	headers: { 
+// 	  'Content-Type': 'application/json',
+// 	  'Accept': 'application/json'
+// 	},
+// 	body: JSON.stringify({
+// 		id: request.id,
+// 		description: record.description
+// 	})
+// }
+
+// fetch(`${url}/requests/${request.id}`, options2)
+// .then(resp=>resp.json())
+// .then(request => {
+// 	modalContent.textContent= "Record has been updated."
+	
+// })
+// }
 
 function showRecord(record){
 const accordian= document.querySelector(".accordions")
 
 const div= document.createElement("div")
 div.classList.add("accordion_container")
+div.dataset.divId=record.id 
 
 const divFlex=document.createElement("div")
-divFlex.classList.add("accordion d-flex flex-row align-items-center")
+divFlex.setAttribute("id", "accordian_panel");
+divFlex.classList.add("accordion")
+divFlex.classList.add("d-flex")
+divFlex.classList.add("flex-row")
+divFlex.classList.add("align-items-center")
 
 const emptyDiv=document.createElement("div")
 emptyDiv.textContent=`Record Number #${record.id}`
 
-devFlex.append(emptyDiv)
+divFlex.append(emptyDiv)
 
+const accordianPanel=document.createElement("div")
+accordianPanel.classList.add("accordion_panel")
+accordianPanel.style.maxHeight="0px"
+
+const secondEmptyDiv= document.createElement("div")
+accordianPanel.append(secondEmptyDiv)
+
+
+const p=document.createElement("p")
+p.innerHTML=`Patient ID:${record.patient_id}</br> Clinic ID: ${record.clinic_id}</br>Description: ${record.description}`
+const btn=document.createElement("button")
+const br=document.createElement("br")
+btn.style.padding = "0px 0px 0px 0px";
+btn.style.width = "300px"; 
+btn.style.backgroundColor = "MediumAquaMarine";
+btn.textContent= "Delete Record"
+
+
+
+
+p.append(br, btn)
+
+btn.addEventListener("click", (e)=>{
+	e.preventDefault();
+	const options = {
+		method: 'DELETE', 
+		body: JSON.stringify({
+			id: record.id, 
+		})
+	};
+	fetch(`${url}/records/${record.id}`, options)
+	.then(res => res.json())
+	.then(record => {
+		div.remove()
+	})
+})
+
+secondEmptyDiv.append(p)
+
+accordianPanel.append(secondEmptyDiv)
+
+div.append(divFlex, accordianPanel)
+accordian.append(div)
+
+div.addEventListener('click', function() {
+    if(accordianPanel.style.maxHeight === '0px') {
+        divFlex.classList.add("active")
+        accordianPanel.style.maxHeight="180px"
+    }      
+    else {
+      divFlex.classList.remove("active");
+      accordianPanel.style.maxHeight="0px"
+    }      
+  });
+}
+
+const modalBtn=document.getElementById("myBtn")
+modalBtn.style.padding = "10px 10px 10px 10px";
+modalBtn.style.width = "300px"; 
+modalBtn.style.backgroundColor = "MediumAquaMarine";
+modalBtn.textContent="New Record Request"
+
+const span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("myModal");
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+modalBtn.addEventListener("click", (e)=>{
+    modal.style.display = "block"; 
+})
+
+fetch(`${url}/clinics`)
+.then(resp=>resp.json())
+.then(clinics => {
+for (const clinic of clinics){
+	clinicSelection(clinic)
+}
+})
+
+function clinicSelection(clinic){
+	const selectForm=document.getElementById("info_form_requesting")
+	const option=document.createElement("option")
+	option.textContent=clinic.name; 
+	selectForm.append(option)
+	option.dataset.clinicId=clinic.id 
+}
+
+fetch (`${url}/patients`)
+.then(resp=>resp.json())
+.then(patients => {
+for (const patient of patients){
+	showPatient(patient)
+}
+})
+
+function showPatient(patient){
+	const selectPatientForm=document.getElementById("info_form_patient")
+	const option=document.createElement("option")
+	option.textContent=`${patient.first_name} ${patient.last_name}`; 
+	selectPatientForm.append(option)
+    option.dataset.optionId=patient.id 
+}
+
+const recordRequestBtn=document.querySelector(".requestBtn")
+recordRequestBtn.style.padding = "10px 10px 10px 10px";
+recordRequestBtn.style.width = "300px"; 
+recordRequestBtn.style.backgroundColor = "MediumAquaMarine";
+recordRequestBtn.style.border="0px"
+recordRequestBtn.textContent="New Record Request"
+
+const formTextArea=document.querySelector(".record_form")
+formTextArea.style.width="350px"
+
+const requestForm=document.querySelector(".info_form")
+requestForm.addEventListener("submit", (e)=>{
+	e.preventDefault(); 
+    createNewRecord()
+    
+})
+
+function createNewRecord(){
+    const formTextArea=document.querySelector(".record_form").value 
+    const clinic=document.getElementById("info_form_requesting") 
+	var myclinic = clinic.options[clinic.selectedIndex].dataset.clinicId
+	
+	const patient=document.getElementById("info_form_patient")
+    var patient1=patient.options[patient.selectedIndex].dataset.optionId
+    
+    const requestForm=document.querySelector(".info_form")
+    const p=document.createElement("p")
+   
+    
+
+    const options = {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            patient_id: patient1,
+            clinic_id: myclinic, 
+            description: formTextArea
+        })
+    }
+    
+    fetch(`${url}/records`, options)
+    .then(resp=>resp.json())
+    .then(record => {
+       showRecord(record)
+       requestForm.reset()
+       p.textContent="Your Request has been Sent."
+       requestForm.append(p)
+    })
+}
+
+
+function deleteBtn(record){
+	const btn=document.createElement("button")
+	// const modalContent=document.querySelector(".modal-p")
+	// const br=document.createElement("br")
+
+	btn.style.padding = "10px 10px 10px 10px";
+	btn.style.width = "300px"; 
+	btn.style.backgroundColor = "MediumAquaMarine";
+	btn.textContent= "Delete Request"
+	modalContent.append(br, btn)
+
+	btn.addEventListener("click", (e)=>{
+		e.preventDefault();
+		const options = {
+			method: 'DELETE', 
+			body: JSON.stringify({
+				id: record.id, 
+			})
+		};
+		fetch(`${url}/records/${record.id}`, options)
+		.then(res => res.json())
+		.then(request => {
+			console.log("deleted")
+		})
+	})
 }

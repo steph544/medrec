@@ -15,6 +15,11 @@ selectLogin.addEventListener('click', function(){
     selectLoginCard.style.display = 'flex'
 });
 
+const loginSubmit=document.querySelector(".login-card form")
+loginSubmit.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    window.location.replace("index.html")
+})
 
 
 //     const createDiv = document.createElement('div')

@@ -244,15 +244,18 @@ fetch(`${url}/requests`)
 			}
 		})
 	
-
 function showRequest(request){
 	const requestSent=document.querySelector(".request_sent_box")
 	const modal = document.getElementById("myModal");
 	const btn = document.createElement("button");
+
 	btn.textContent=`Request Number #${request.id}` 
 	btn.style.padding = "10px 10px 10px 10px";
 	btn.style.width = "300px"; 
+	btn.classList.add("button_list")
 	btn.dataset.requestId=request.id 
+	
+
 	const p =document.createElement("p")
 	requestSent.append(btn, p)
 
@@ -284,6 +287,7 @@ function completedRequest(request){
 	btn.style.padding = "10px 10px 10px 10px";
 	btn.style.width = "300px"; 
 	btn.dataset.requestId=request.id 
+	btn.classList.add("button_list")
 
 	requestComplete.append(btn, p)
 
@@ -313,7 +317,7 @@ function requestReceived(request){
 
 	btn.style.padding = "10px 10px 10px 10px";
 	btn.style.width = "300px"; 
-	
+	btn.classList.add("button_list")
 
 	btn.textContent=`Request Number #${request.id}` 
 	btn.dataset.requestId=request.id 
@@ -383,6 +387,7 @@ function modalContentRequestsReceived(request){
 		.then(resp=>resp.json())
 		.then(request => {
 			modalContent.textContent= "Request Has Been Authorized"
+			
 		})
 	})
 }
@@ -410,9 +415,16 @@ function deleteBtn(request){
 		.then(res => res.json())
 		.then(request => {
 			modalContent2.textContent= "Request Has Been Deleted"
+			let btnArray=document.querySelectorAll(".button_list")
+			for (let i=0; i<btnArray.length; i++){
+				if (btnArray[i].getAttribute("data-request-id") == request.id){
+					btnArray[i].remove()
+				}
+			}
 		})
 	})
 }
+
 
 
 

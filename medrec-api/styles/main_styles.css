@@ -1727,7 +1727,7 @@ section
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
 	border: 1px solid #888;
-	width: 80%; /* Could be more or less, depending on screen size */
+	width: 30%; /* Could be more or less, depending on screen size */
   }
   
   /* The Close Button */
@@ -1740,6 +1740,46 @@ section
   
   .close:hover,
   .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+
+  
+  /* The Modal (background) */
+  .modal2 {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal2-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close2 {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close2:hover,
+  .close2:focus {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
@@ -1759,7 +1799,7 @@ section
 	padding 0; */
 }
 .access .container{
-	position: absolute;
+	position: relative;
 	background-color: #4c4c4c;
 	
 	width: 300px;
@@ -1768,7 +1808,27 @@ section
 
 }
 
+.login-card form {
+	align: center;
+}
+
 .login-card{
 	font-size: 14pt;
 	color: #32c69a;
 }
+
+.patients-form-div form{
+    display: none;
+    padding: 10px;
+}
+.patient-form-container{
+    display: flex;
+    display: ;
+}
+
+.text-center {
+    text-align: center!important;
+}
+Inherited from body
+services.css:40
+
