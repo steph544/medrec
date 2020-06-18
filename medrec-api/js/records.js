@@ -239,52 +239,38 @@ const url="http://127.0.0.1:3000"
 			}
 		})
 
-// const updateBtn=document.getElementById("myBtn2")
-// updateBtn.style.padding = "10px 10px 10px 10px";
-// updateBtn.style.width = "300px"; 
-// updateBtn.style.backgroundColor = "MediumAquaMarine";
-// updateBtn.textContent= "Update Record"
-// updateBtn.addEventListener("click", (e)=>{
-// 	const span2 = document.getElementsByClassName("close2")[0];
-// 	const modal2 = document.getElementById("myModal2");
-// 	  // When the user clicks on <span> (x), close the modal
-// 	  span2.onclick = function() {
-// 		modal2.style.display = "none";
-// 	  }
-	  
-// 	  // When the user clicks anywhere outside of the modal, close it
-// 	  window.onclick = function(event) {
-// 		if (event.target == modal2) {
-// 		  modal2.style.display = "none";
-// 		}
-// 	  }
-// 	modal2.style.display = "block"; 
-// })
 
-// const modalContent2=document.querySelector(".modal-content2")
-// modalContent2.textContent="HELLO"
+const modal2 = document.getElementById("myModal2");
+const updateBtn2 = document.getElementById("myBtn2");
+const span2 = document.getElementsByClassName("close2")[0];
+updateBtn2.style.padding = "10px 10px 10px 10px";
+updateBtn2.style.width = "300px"; 
+updateBtn2.style.backgroundColor = "MediumAquaMarine";
+updateBtn2.textContent= "Update Record"
+// When the user clicks on the button, open the modal
+updateBtn2.addEventListener("click",()=>{
+	modal2.style.display = "block";
+  })
+  
+  // When the user clicks on <span> (x), close the modal
+  span2.onclick = function() {
+	modal2.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+	if (event.target == modal2) {
+	  modal2.style.display = "none";
+	}
+  }
 
-
-
-// const options2 = {
-// 	method: 'PATCH',
-// 	headers: { 
-// 	  'Content-Type': 'application/json',
-// 	  'Accept': 'application/json'
-// 	},
-// 	body: JSON.stringify({
-// 		id: request.id,
-// 		description: record.description
-// 	})
-// }
-
-// fetch(`${url}/requests/${request.id}`, options2)
+// fetch(`${url}/records`)
 // .then(resp=>resp.json())
-// .then(request => {
+// .then(records => {
 // 	modalContent.textContent= "Record has been updated."
-	
+
 // })
-// }
+
 
 function showRecord(record){
 const accordian= document.querySelector(".accordions")
