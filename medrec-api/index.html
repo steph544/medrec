@@ -17,6 +17,7 @@
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="assets/css/template.css" rel="stylesheet" media="screen">
 <script src="https://www.googletagservices.com/activeview/js/current/osd.js?cb=%2Fr20100101"></script><script type="text/javascript">if ( top !== self ) top.location.replace( self.location.href );// Hey, don't iframe my iframe!</script>
+<script defer src="js/project_patients.js"></script>
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300" rel="stylesheet" type="text/css">
@@ -33,7 +34,13 @@
 <div class="super_container">
 
 	<!-- Menu -->
-
+<!-- ************************ -->
+<!-- create fake log in page -->
+<div>
+	
+</div>
+<!-- end of fake log in page -->
+<!-- ************************ -->
 	<div class="menu trans_500">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
 			<div class="menu_close_container"><div class="menu_close"></div></div>
@@ -103,13 +110,15 @@
 									<div class="col">
 										<div class="header_nav_content d-flex flex-row align-items-center justify-content-start">
 											<nav class="main_nav">
+<!-- edit/adjustment nav -->
 												<ul class="d-flex flex-row align-items-center justify-content-start">
-													<li class="active"><a href="index.html">Home</a></li>
-													<li><a href="requests.html">Requests</a></li>
-													<li><a href="patients.html">Patients</a></li>
-													<li><a href="records.html">Records</a></li>
-													<li><a href="login.html">Logout</a></li>
+													<li class="active home-nav">Home</li>
+													<li class="requests-nav">Requests</li>
+													<li class="patients-nav">Patients</li>
+													<li class="records-nav">Records</li>
+													<li class="logout-nav">Logout</li>
 												</ul>
+<!-- end of edit nav -->										
 											</nav>
 											<div class="search_content d-flex flex-row align-items-center justify-content-end ml-auto">
 												<form action="#" id="search_container_form" class="search_container_form">
@@ -179,6 +188,7 @@
 					
 					</div>
 					</div>
+					
 					</div>
 					</div>
 <!-- Trigger/Open The Modal -->
@@ -254,7 +264,92 @@
 			</div>
 		</div>
 	</div>
-				
+
+
+	<!-- start of the home byte -->
+	<div class="container home-replace-html">
+		<div class="container">
+			<div class="row">
+			<div class="col text-center">
+			<div class="section_title">
+				<img src="images/doctors.jpg" alt="">
+				<br/>
+				Your Clinic Dashboard</div>
+			<div class="section_subtitle">choose from</div>
+			</div>
+			</div>
+			<div class="row icon_boxes_row">
+			
+			<div class="col-xl-4 col-lg-6">
+			<div class="icon_box">
+			<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
+			<div class="icon_box_icon"><img src="images/icon_1.svg" alt=""></div>
+			<div class="icon_box_title">Requests Sent</div>
+			</div>
+			<div class="request_sent_box"></div>
+			</div>
+			</div>
+			
+			<div class="col-xl-4 col-lg-6">
+			<div class="icon_box">
+			<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
+			<div class="icon_box_icon"><img src="images/icon_2.svg" alt=""></div>
+			<div class="icon_box_title">Completed Requests</div>
+			</div>
+			<div class="request_completed_box"></div>
+			</div>
+			</div>
+			
+			<div class="col-xl-4 col-lg-6">
+			<div class="icon_box">
+			<div class="icon_box_title_container d-flex flex-row align-items-center justify-content-start">
+			<div class="icon_box_icon"><img src="images/icon_3.svg" alt=""></div>
+			<div class="icon_box_title">Requests Received</div>
+			</div>
+			<div class="request_received_box"></div>
+			</div>
+			</div>
+		
+			
+			<div class="col-xl-4 col-lg-6">
+			
+			<div class="icon_box_title"></div>
+			</div>
+			
+			</div>
+			</div>
+			
+			</div>
+
+
+	<!-- start of patients byte -->
+				<div class="patient-form-container">
+						<div class="row">
+							<div class="col text-center">
+								<div class="section_title">Authorized Patients</div>
+								<div class="section_subtitle">select from below to view</div><br>
+								<div class="patients-form-div">
+									<form class="patients-form">
+										<label for="fname">Patient First Name:</label><br>
+										<input type="text"><br>
+										<label for="lname">Patient Last Name:</label><br>
+										<input type="text"><br>
+										<label for="ssn" maxlength="4" >Last 4 digits of SS#:</label><br>
+										<input type="text"><br>
+										<label for="birthday">DOB:</label><br>
+										<input type="date"><br><br>
+										<input type="submit">
+									</form>
+								</div>
+								<div class="empty-patient-display">
+									<h2 class="display-patient-name"></h2>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--end of html bytes-->
 	<!-- Footer -->
 
 	<footer class="footer">
@@ -368,6 +463,6 @@
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="js/custom.js"></script>
+<!-- <script src="js/custom.js"></script> -->
 </body>
 </html>
